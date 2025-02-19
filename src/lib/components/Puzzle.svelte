@@ -8,8 +8,7 @@
 	const idCard = `${uid}-card`;
 	let help = $state(false);
 	let answered = $state(false);
-
-	let imgUrl = $derived(question.img? new URL('question.img', import.meta.url).href : "");
+	let imgUrl = $derived(question.img? `https://raw.githubusercontent.com/tgrx/morexodka/refs/heads/main/static/questions/${question.img}`:"");
 
 	const trackAnswer = (v, node) => {
 		if (answered) {
@@ -45,7 +44,7 @@
 
 <div class="card mb-2">
 	{#if question.img}
-		<enhanced:img src="{imgUrl}" class="card-img-top img-thumbnail m-2" style="max-width: 350px" alt="Illustration" />
+		<img src="{imgUrl}" class="card-img-top img-thumbnail m-2" style="max-width: 350px" alt="Illustration" />
 	{/if}
 	<div class="card-body" id={idCard}>
 		<h5 class="card-title">{question.msg}</h5>
