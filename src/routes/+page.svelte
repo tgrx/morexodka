@@ -2,6 +2,7 @@
 	import data from '$lib/index.js';
 	import Puzzle from '$lib/components/Puzzle.svelte';
 	import Stat from '$lib/components/Stat.svelte';
+	import * as bootstrap from 'bootstrap';
 
 	let correctAnswers = $state(Number(localStorage.getItem('correctAnswers') || 0));
 	let currentQuestionIndex = $state(Number(localStorage.getItem('currentQuestion') || 0));
