@@ -1,6 +1,8 @@
 <script>
 	import data from '$lib/index.js';
 
+	import iii from '$lib/assets/1-1.png';
+
 	let { questionIndex, correct = $bindable(), total = $bindable() } = $props();
 	const variants = ['a', 'b', 'c', 'd'];
 	const question = $derived(data.questions[questionIndex]);
@@ -43,7 +45,8 @@
 
 <div class="card mb-2">
 	{#if question.img}
-		<img src="https://github.com/tgrx/morexodka/blob/main/src/lib/assets/{question.img}" crossorigin="anonymous" class="card-img-top img-thumbnail m-2" style="max-width: 350px" alt="Illustration" />
+		<!-- <img src="https://github.com/tgrx/morexodka/blob/main/src/lib/assets/{question.img}" crossorigin="anonymous" class="card-img-top img-thumbnail m-2" style="max-width: 350px" alt="Illustration" /> -->
+		<img src="{iii}" class="card-img-top img-thumbnail m-2" style="max-width: 350px" alt="Illustration" />
 	{/if}
 	<div class="card-body" id={idCard}>
 		<h5 class="card-title">{question.msg}</h5>
