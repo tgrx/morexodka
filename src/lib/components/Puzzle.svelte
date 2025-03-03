@@ -2,7 +2,9 @@
 	import data from '$lib/index.js';
 
 	let { questionIndex, correct = $bindable(), total = $bindable() } = $props();
-	const variants = ['a', 'b', 'c', 'd'].sort((a,b) => {return Math.random()-0.5});
+	const variants = ['a', 'b', 'c', 'd'].sort((a, b) => {
+		return Math.random() - 0.5;
+	});
 	const question = $derived(data.questions[questionIndex]);
 	const uid = $props.id();
 	const idCard = `${uid}-card`;
