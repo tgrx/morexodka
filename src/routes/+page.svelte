@@ -11,22 +11,11 @@
 	let puzzle;
 
 	const changeQuestion = () => {
-		puzzle.reset();
 		if (!freshQuestions.length) {
-			freshQuestions = [...Array(data.questions.length).keys()].sort((a, b) => {
-				if (Math.random() < 0.5) {
-					return -1;
-				} else if (Math.random() > 0.5) {
-					return 1;
-				} else {
-					return 0;
-				}
-			});
-			console.log(`🟩 fresh questions: ${JSON.stringify(freshQuestions)}`);
+			freshQuestions = [...Array(data.questions.length).keys()].sort((a, b) => {return Math.random() - 0.5});
 		}
-		console.log(`fresh questions: ${JSON.stringify(freshQuestions)}`);
 		currentQuestionIndex = freshQuestions.pop();
-		console.log(`currentQuestionIndex = ${currentQuestionIndex}`);
+		puzzle.reset();
 	};
 
 	const wipeRating = () => {
@@ -61,8 +50,8 @@
 		<div class="col">
 			<Stat
 				correct={correctAnswers}
-				total={totalAnswers}
 				fresh={freshQuestions.length}
+				total={totalAnswers}
 				{wipeRating}
 			/>
 		</div>
@@ -70,10 +59,10 @@
 	<div class="row">
 		<div class="col">
 			<Puzzle
-				questionIndex={currentQuestionIndex}
 				bind:correct={correctAnswers}
-				bind:total={totalAnswers}
 				bind:this={puzzle}
+				bind:total={totalAnswers}
+				questionIndex={currentQuestionIndex}
 			/>
 		</div>
 	</div>
